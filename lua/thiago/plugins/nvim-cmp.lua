@@ -25,7 +25,7 @@ return {
 			completion = {
 				completeopt = "menu,menuone,preview",
 			},
-			snippet = { -- configure how nvim-cmp interacts with snippet engine
+			snippet = {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
 				end,

@@ -43,19 +43,6 @@ opt.swapfile = false
 opt.backup = false
 opt.writebackup = false
 
+opt.scrolloff = 10
+
 vim.opt.guicursor = "n-v-c:i:block"
-
-vim.api.nvim_create_autocmd("TextYankPost", {
-	group = vim.api.nvim_create_augroup("highlight_yank", {}),
-	desc = "Highlight selection on yank",
-	pattern = "*",
-	callback = function()
-		vim.highlight.on_yank()
-	end,
-})
-
-vim.cmd([[
-  autocmd BufWinEnter *.php colorscheme oh-lucy
-  autocmd BufWinEnter *.c,*.cpp,*.go,*.rs,*.lua colorscheme rose-pine-main
-  autocmd BufWinEnter *.js,*.ts,*.tsx colorscheme github_dark_dimmed
-]])

@@ -23,9 +23,6 @@ keymap.set("n", "<leader>xc", "<cmd>close<CR>", { desc = "Close current split" }
 -- File Explorer
 keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
--- Toggle terminal background transparency
-keymap.set("n", "<leader>xt", "<CMD>TransparentToggle<CR>", { desc = "Toggle terminal background transparency" })
-
 -- Save and quit
 keymap.set("n", "<C-q>", "<CMD>q!<CR>", { desc = "Quit without saving" })
 keymap.set("n", "<C-s>", "<CMD>w!<CR>", { desc = "Force write to file" })
@@ -34,7 +31,32 @@ keymap.set("n", "<C-s>", "<CMD>w!<CR>", { desc = "Force write to file" })
 keymap.set("n", "<C-n>", "<CMD>cnext<CR>", { desc = "Move to next item in the quick fix list" })
 keymap.set("n", "<C-p>", "<CMD>cprevious<CR>", { desc = "Move to previous item in the quick fix list" })
 
--- Vim dad bod
+-- Buffers
+keymap.set("n", "<leader>bd", "<CMD>bd<CR>", { desc = "Delete current buffer" })
 
-keymap.set("n", "zl", "normal 15zl", { desc = "Move 15 characters to left" })
-keymap.set("n", "zh", "normal 15zh", { desc = "Move 15 characters to right" })
+-- Vim dad bod
+keymap.set("n", "<leader>zl", "normal 15zl", { desc = "Move 15 characters to left" })
+keymap.set("n", "<leader>zh", "normal 15zh", { desc = "Move 15 characters to right" })
+keymap.set("n", "<leader>db", ":DBUIToggle<CR>", { desc = "Toggle Database UI" })
+
+-- Git
+keymap.set("n", "<leader>gg", ":Git<CR>", { desc = "Open git status in a horizontal split" })
+keymap.set("n", "<leader>hn", "<CMD>Gitsigns next_hunk<CR>", { desc = "Go to next buffer hunk" })
+keymap.set("n", "<leader>hp", "<CMD>Gitsigns prev_hunk<CR>", { desc = "Go to previous buffer hunk" })
+keymap.set("n", "<leader>hr", "<CMD>Gitsigns reset_hunk<CR>", { desc = "Reset hunk" })
+keymap.set("n", "<leader>hR", "<CMD>Gitsigns reset_buffer<CR>", { desc = "Reset buffer" })
+keymap.set("n", "<leader>hp", "<CMD>Gitsigns preview_hunk<CR>", { desc = "Preview hunk" })
+keymap.set("n", "<leader>hd", "<CMD>Gitsigns diffthis<CR>", { desc = "Diff this buffer" })
+keymap.set("n", "<leader>td", "<CMD>Gitsigns toggle_deleted<CR>", { desc = "Toggle deleted" })
+
+keymap.set("n", "<leader>mm", function()
+	local messages = vim.api.nvim_exec2("messages", { output = true })
+	local lines = require("thiago.core.helpers").split(messages.output, "\n")
+
+	vim.cmd("split [messages]")
+	vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
+
+	vim.bo.buftype = "nofile"
+	vim.bo.bufhidden = "wipe"
+	vim.bo.swapfile = false
+end, { desc = "Show messages in a buffer" })

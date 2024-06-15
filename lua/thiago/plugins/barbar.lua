@@ -8,7 +8,9 @@ return {
 		vim.g.barbar_auto_setup = false
 	end,
 	config = function()
-		require("barbar").setup({})
+		require("barbar").setup({
+			exclude_name = { "[messages]" },
+		})
 
 		vim.keymap.set("n", "<S-x>", "<cmd>BufferClose<CR>", { desc = "Close current buffer" })
 		vim.keymap.set("n", "<S-l>", "<cmd>BufferNext<CR>", { desc = "Go to next buffer" })
