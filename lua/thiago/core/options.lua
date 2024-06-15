@@ -44,5 +44,3 @@ opt.backup = false
 opt.writebackup = false
 
 opt.scrolloff = 10
-
-vim.opt.guicursor = "n-v-c:i:block"

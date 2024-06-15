@@ -1,5 +1,6 @@
 return {
 	"mawkler/modicator.nvim",
+	event = "BufReadPre",
 	opts = {
 		-- Warn if any required option is missing. May emit false positives if some
 		-- other plugin modifies them, which in that case you can just ignore
