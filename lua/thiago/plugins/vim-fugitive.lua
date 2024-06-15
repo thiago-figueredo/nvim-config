@@ -3,7 +3,7 @@ return {
 	config = function()
 		vim.keymap.set("n", "<leader>gg", ":Git<CR>", { desc = "Open git status in a horizontal split" })
 		vim.keymap.set("n", "<leader>gr", function()
-			print("TODO: Implement git restore file in current line")
+			-- TODO: Implement git restore file in current line
 			local current_line = vim.api.nvim_get_current_line()
 			local filepath = string.match(current_line, " (.+)")
 
