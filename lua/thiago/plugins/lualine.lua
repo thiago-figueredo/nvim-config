@@ -9,13 +9,13 @@ return {
 				lualine_a = { "mode" },
 				lualine_b = { "branch", "diff", "diagnostics" },
 				lualine_c = {
-					{ "filename", path = 1 },
+					{ "filename", path = 3 }, 
 				},
-				lualine_x = { "encoding", "fileformat", "filetype", "filesize", "searchcount" },
+				lualine_x = { "encoding", "filetype", "filesize" },
 				lualine_y = {
 					{ "datetime", style = "%Y-%m-%d %H:%M:%S %p" },
 				},
-				lualine_z = { "location" },
+				lualine_z = { "progress", "location" },
 			},
 		})
 	end,

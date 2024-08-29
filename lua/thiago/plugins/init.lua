@@ -9,4 +9,5 @@ return {
 	},
 	"github/copilot.vim",
 	"mg979/vim-visual-multi",
+  "morhetz/gruvbox"
 }
