@@ -10,14 +10,15 @@ keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Go half page up and center the cur
 keymap.set("v", "<", "<gv", { desc = "Ident tab left mutliple times in visual mode" })
 keymap.set("v", ">", ">gv", { desc = "Ident tab right mutliple times in visual mode" })
 keymap.set(
-	"n",
-	"gx",
-	':execute "silent!xdg-open ". shellescape(vim.fn.expand("<cWORD>"), 1)<cr>',
-	{ desc = "Open link under the cursor" }
+  "n",
+  "gx",
+  ':execute "silent!xdg-open ". shellescape(vim.fn.expand("<cWORD>"), 1)<cr>',
+  { desc = "Open link under the cursor" }
 )
 
 -- Window management
 keymap.set("n", "<leader>xv", "<cmd>vsplit <CR>", { desc = "Split vertically" })
+keymap.set("n", "<leader>xh", "<cmd>split <CR>", { desc = "Split horizontally" })
 keymap.set("n", "<leader>xc", "<cmd>close<CR>", { desc = "Close current split" })
 
 -- File Explorer
@@ -50,13 +51,13 @@ keymap.set("n", "<leader>hd", "<CMD>Gitsigns diffthis<CR>", { desc = "[gitsigns]
 keymap.set("n", "<leader>td", "<CMD>Gitsigns toggle_deleted<CR>", { desc = "[gitsigns] Toggle deleted" })
 
 keymap.set("n", "<leader>mm", function()
-	local messages = vim.api.nvim_exec2("messages", { output = true })
-	local lines = require("thiago.core.helpers").split(messages.output, "\n")
+  local messages = vim.api.nvim_exec2("messages", { output = true })
+  local lines = require("thiago.core.helpers").split(messages.output, "\n")
 
-	vim.cmd("split [messages]")
-	vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
+  vim.cmd("split [messages]")
+  vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
 
-	vim.bo.buftype = "nofile"
-	vim.bo.bufhidden = "wipe"
-	vim.bo.swapfile = false
+  vim.bo.buftype = "nofile"
+  vim.bo.bufhidden = "wipe"
+  vim.bo.swapfile = false
 end, { desc = "Show messages in a buffer" })
