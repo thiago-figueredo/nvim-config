@@ -20,7 +20,14 @@ return {
     "akinsho/toggleterm.nvim",
     version = "*",
     config = function()
-      require("toggleterm").setup({ direction = "float" })
+      require("toggleterm").setup({
+        direction = "float",
+        shade_terminals = false,
+        float_opts = {
+          winblend = 20,
+          border = "curved",
+        },
+      })
 
       vim.api.nvim_set_keymap(
         "n",
