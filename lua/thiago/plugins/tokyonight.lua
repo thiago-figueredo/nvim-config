@@ -1,7 +1,7 @@
 return {
   "folke/tokyonight.nvim",
   opts = {
-    transparent = true,
+    transparent = false,
     styles = {
       comments = { italic = false },
       keywords = { italic = false },

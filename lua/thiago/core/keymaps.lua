@@ -3,7 +3,6 @@ vim.g.mapleader = " "
 local keymap = vim.keymap
 
 -- General Keymaps -------------------
-
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Go half down page and center cursor" })
 keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Go half page up and center the cursor" })
@@ -29,8 +28,24 @@ keymap.set("n", "<C-q>", "<CMD>q!<CR>", { desc = "Quit without saving" })
 keymap.set("n", "<C-s>", "<CMD>w!<CR>", { desc = "Force write to file" })
 
 -- Quick fix list
-keymap.set("n", "<C-n>", "<CMD>cnext<CR>", { desc = "Move to next item in the quick fix list" })
-keymap.set("n", "<C-p>", "<CMD>cprevious<CR>", { desc = "Move to previous item in the quick fix list" })
+keymap.set("n", "<C-j>", "<CMD>cnext<CR>", { desc = "Move to next item in the quick fix list" })
+keymap.set("n", "<C-k>", "<CMD>cprevious<CR>", { desc = "Move to previous item in the quick fix list" })
+keymap.set("n", "<C-x>", function()
+  local qflist = vim.fn.getqflist()
+  local index = vim.fn.getqflist({ idx = 0 }).idx
+
+  table.remove(qflist, index)
+
+  vim.fn.setqflist(qflist)
+
+  vim.cmd('copen')
+
+  if index > 1 then
+    vim.cmd('cc ' .. index + 1)
+  else
+    vim.cmd('cc ' .. 1)
+  end
+end, { desc = "Remove item from quick fix list" })
 
 -- Buffers
 keymap.set("n", "<leader>bd", "<CMD>bd<CR>", { desc = "Delete current buffer" })

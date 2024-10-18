@@ -14,17 +14,6 @@ if current_day % 2 == 0 then
   colorscheme = "retrobox"
 end
 
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = "*.rs",
-  callback = function()
-    if colorscheme == "retrobox" then
-      vim.treesitter.stop()
-    end
-
-    vim.cmd("colorscheme " .. colorscheme)
-  end,
-})
-
 vim.api.nvim_create_autocmd({ "BufRead" }, {
   pattern = "trouble",
   callback = function()

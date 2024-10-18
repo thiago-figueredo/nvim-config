@@ -3,15 +3,15 @@ return {
   event = "InsertEnter",
   dependencies = {
     "hrsh7th/cmp-buffer", -- source for text in buffer
-    "hrsh7th/cmp-path", -- source for file system paths
+    "hrsh7th/cmp-path",   -- source for file system paths
     {
       "L3MON4D3/LuaSnip",
       version = "v2.*",
       build = "make install_jsregexp",
     },
-    "saadparwaiz1/cmp_luasnip",   -- for autocompletion
+    "saadparwaiz1/cmp_luasnip",     -- for autocompletion
     "rafamadriz/friendly-snippets", -- useful snippets
-    "onsails/lspkind.nvim",       -- vs-code like pictograms
+    "onsails/lspkind.nvim",         -- vs-code like pictograms
   },
   config = function()
     local cmp = require("cmp")
@@ -58,10 +58,10 @@ return {
         },
       },
       sources = cmp.config.sources({
-        { name = "nvim_lsp" },               -- lsp
-        { name = "luasnip" },                -- snippets
-        { name = "path" },                   -- file system paths
-        { name = "buffer",  keyword_length = 4 }, -- text within current buffer
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "path" },
+        { name = "buffer",  keyword_length = 4 },
       }),
       -- configure lspkind for vs-code like pictograms in completion menu
       formatting = {
