@@ -58,7 +58,7 @@ return {
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
     vim.diagnostic.config({
-      virtual_text = false,
+      virtual_text = true,
       signs = true,
       underline = true,
       update_in_insert = false,

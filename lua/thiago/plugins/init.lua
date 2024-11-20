@@ -12,9 +12,10 @@ return {
   "morhetz/gruvbox",
   "xiyaowong/transparent.nvim",
   "jnurmine/Zenburn",
-  "luisiacc/gruvbox-baby",
   "alexmozaidze/palenight.nvim",
   "EdenEast/nightfox.nvim",
   "sainnhe/sonokai",
+  "sainnhe/everforest",
   "jwalton512/vim-blade",
+  "LunarVim/darkplus.nvim"
 }

@@ -38,6 +38,11 @@ keymap.set("n", "<C-x>", function()
 
   vim.fn.setqflist(qflist)
 
+  if #qflist == 0 then
+    vim.cmd('cclose')
+    return
+  end
+
   vim.cmd('copen')
 
   if index > 1 then
@@ -76,3 +81,7 @@ keymap.set("n", "<leader>mm", function()
   vim.bo.bufhidden = "wipe"
   vim.bo.swapfile = false
 end, { desc = "Show messages in a buffer" })
+
+vim.keymap.set("n", "<leader>hi", function()
+  require("lsp-inlayhints").toggle()
+end, { noremap = true, silent = true, desc = "Toggle Inlay Hints" })

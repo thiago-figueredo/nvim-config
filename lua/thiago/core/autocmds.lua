@@ -7,17 +7,22 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end
 })
 
-local current_day = os.date("%d")
 local colorscheme = "gruvbox"
-
-if current_day % 2 == 0 then
-  colorscheme = "retrobox"
-end
 
 vim.api.nvim_create_autocmd({ "BufRead" }, {
   pattern = "trouble",
-  callback = function()
+  callback = function(a, b, c)
     vim.cmd("colorscheme " .. colorscheme)
+  end,
+})
+
+vim.api.nvim_create_augroup("GoFileColorscheme", { clear = true })
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = "GoFileColorscheme",
+  pattern = "go",
+  callback = function()
+    vim.cmd("colorscheme rose-pine-moon")
   end,
 })
 
