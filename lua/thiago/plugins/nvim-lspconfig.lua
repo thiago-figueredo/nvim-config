@@ -7,6 +7,7 @@ return {
     { "folke/neodev.nvim",                   opts = {} },
   },
   config = function()
+    local helpers = require("thiago.core.helpers")
     local lspconfig = require("lspconfig")
     local mason_lspconfig = require("mason-lspconfig")
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -51,7 +52,7 @@ return {
         keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 
         opts.desc = "Show documentation for what is under cursor"
-        keymap.set("n", "K", vim.lsp.buf.hover, opts)
+        keymap.set("n", "K", helpers.hover, opts)
       end,
     })
 

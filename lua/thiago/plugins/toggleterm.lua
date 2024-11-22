@@ -24,7 +24,7 @@ return {
         direction = "float",
         shade_terminals = false,
         float_opts = {
-          winblend = 20,
+          winblend = 5,
           border = "curved",
         },
       })
