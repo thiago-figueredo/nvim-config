@@ -8,12 +8,6 @@ keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Go half down page and center curso
 keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Go half page up and center the cursor" })
 keymap.set("v", "<", "<gv", { desc = "Ident tab left mutliple times in visual mode" })
 keymap.set("v", ">", ">gv", { desc = "Ident tab right mutliple times in visual mode" })
-keymap.set(
-  "n",
-  "gx",
-  ':execute "silent!xdg-open ". shellescape(vim.fn.expand("<cWORD>"), 1)<cr>',
-  { desc = "Open link under the cursor" }
-)
 
 -- Window management
 keymap.set("n", "<leader>xv", "<cmd>vsplit <CR>", { desc = "Split vertically" })

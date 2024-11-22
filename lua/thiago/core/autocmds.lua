@@ -11,18 +11,17 @@ local colorscheme = "gruvbox"
 
 vim.api.nvim_create_autocmd({ "BufRead" }, {
   pattern = "trouble",
-  callback = function(a, b, c)
+  callback = function()
     vim.cmd("colorscheme " .. colorscheme)
   end,
 })
 
 vim.api.nvim_create_augroup("GoFileColorscheme", { clear = true })
 
-vim.api.nvim_create_autocmd("FileType", {
-  group = "GoFileColorscheme",
-  pattern = "go",
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "rose-pine-moon",
   callback = function()
-    vim.cmd("colorscheme rose-pine-moon")
+    vim.api.nvim_set_hl(0, "@function.method.call", { fg = "#ea9a97" })
   end,
 })
 

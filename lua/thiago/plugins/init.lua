@@ -17,5 +17,6 @@ return {
   "sainnhe/sonokai",
   "sainnhe/everforest",
   "jwalton512/vim-blade",
-  "LunarVim/darkplus.nvim"
+  "LunarVim/darkplus.nvim",
+  "dhruvasagar/vim-open-url"
 }
