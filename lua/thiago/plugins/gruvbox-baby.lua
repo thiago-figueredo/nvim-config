@@ -1,8 +1,6 @@
 return {
   "luisiacc/gruvbox-baby",
   config = function()
-    vim.cmd("colorscheme gruvbox-baby")
-
     vim.api.nvim_create_autocmd("ColorScheme", {
       pattern = "gruvbox-baby",
       callback = function()

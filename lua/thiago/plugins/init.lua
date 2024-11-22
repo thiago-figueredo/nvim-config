@@ -10,7 +10,6 @@ return {
   "github/copilot.vim",
   "mg979/vim-visual-multi",
   "morhetz/gruvbox",
-  "xiyaowong/transparent.nvim",
   "jnurmine/Zenburn",
   "alexmozaidze/palenight.nvim",
   "EdenEast/nightfox.nvim",

@@ -8,7 +8,5 @@ return {
       no_italic = true,
       transparent_background = false,
     })
-
-    vim.cmd("colorscheme catppuccin")
   end,
 }
