@@ -9,6 +9,14 @@ return {
     local mason = require("mason")
 
     mason.setup({
+      ensure_installed = {
+        "tsserver",
+        "lua_ls",
+        "gopls",
+        "clangd",
+        "rust_analyzer",
+        "pyright"
+      },
       ui = {
         icons = {
           package_installed = "✓",

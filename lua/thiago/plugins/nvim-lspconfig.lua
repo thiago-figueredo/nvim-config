@@ -120,6 +120,15 @@ return {
               completion = {
                 callSnippet = "Replace",
               },
+              hint = {
+                enable = true,
+                arrayIndex = "Auto", -- "Enable", "Auto", or "Disable"
+                await = true,
+                paramName = "All",   -- "All", "Literal", or "Disable"
+                paramType = true,
+                semicolon = "Disable",
+                setType = true,
+              },
             },
           },
         })
@@ -127,4 +136,3 @@ return {
     })
   end,
 }
-

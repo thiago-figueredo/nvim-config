@@ -79,6 +79,10 @@ function M.hover(text)
       return vim.api.nvim_set_current_win(winid)
     end
 
+    if not result then
+      return
+    end
+
     local filetype = vim.bo.filetype
 
     if filetype ~= "go" then
@@ -88,12 +92,8 @@ function M.hover(text)
     local cword = text or vim.fn.expand("<cword>")
     local godoc = vim.fn.system("go doc " .. cword)
 
-    if string.find(godoc, "doc: no symbol Sprintf in package .") ~= nil then
+    if vim.startswith(godoc, "doc: no") then
       return vim.lsp.util.open_floating_preview({ result.contents.value }, "markdown")
-    end
-
-    if not result then
-      return
     end
 
     if result.contents.value:sub(-1) == '\n' then

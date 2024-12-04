@@ -63,11 +63,16 @@ return {
         { name = "path" },
         { name = "buffer",  keyword_length = 4 },
       }),
-      -- configure lspkind for vs-code like pictograms in completion menu
       formatting = {
         format = lspkind.cmp_format({
           maxwidth = 50,
           ellipsis_char = "...",
+          menu = {
+            buffer = "[Buffer]",
+            nvim_lsp = "[LSP]",
+            luasnip = "[Snippet]",
+            path = "[Path]",
+          }
         }),
       },
     })
