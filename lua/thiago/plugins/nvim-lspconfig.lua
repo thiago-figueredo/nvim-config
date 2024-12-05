@@ -87,6 +87,26 @@ return {
           },
         })
       end,
+      ["rust_analyzer"] = function()
+        lspconfig['rust_analyzer'].setup({
+          settings = {
+            rust_analyzer = {
+              inlayHints = {
+                typeHints = true,
+                parameterHints = true,
+                chainingHints = true,
+                closingBraceHints = {
+                  enable = true,
+                },
+                lifetimeElisionHints = {
+                  enable = "always",
+                },
+                bindingModeHints = true,
+              },
+            }
+          }
+        })
+      end,
       ["gopls"] = function()
         lspconfig["gopls"].setup({
           capabilities = capabilities,
