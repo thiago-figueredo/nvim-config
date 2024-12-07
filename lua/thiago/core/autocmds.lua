@@ -18,12 +18,12 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
 
 vim.api.nvim_create_augroup("GoFileColorscheme", { clear = true })
 
-vim.api.nvim_create_autocmd("ColorScheme", {
-  pattern = "rose-pine-moon",
-  callback = function()
-    vim.api.nvim_set_hl(0, "@function.method.call", { fg = "#ea9a97" })
-  end,
-})
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+--   pattern = "rose-pine-moon",
+--   callback = function()
+--     vim.api.nvim_set_hl(0, "@function.method.call", { fg = "#ea9a97" })
+--   end,
+-- })
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
   callback = function()

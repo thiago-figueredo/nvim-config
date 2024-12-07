@@ -79,3 +79,6 @@ end, { desc = "Show messages in a buffer" })
 vim.keymap.set("n", "<leader>hi", function()
   require("lsp-inlayhints").toggle()
 end, { noremap = true, silent = true, desc = "Toggle Inlay Hints" })
+
+-- Keymap to dismiss noice me
+vim.keymap.set("n", "<leader>nd", "<CMD>NoiceDismiss<CR>", { desc = "Dismiss noice message" })

@@ -15,6 +15,7 @@ return {
       },
       highlight = {
         enable = true,
+        additional_vim_regex_highlighting = false, -- Avoid conflict with Vim regex highlights
       },
       indent = { enable = true },
       autotag = {

@@ -7,12 +7,9 @@ return {
       extend_background_behind_borders = true,
       enable = {
         terminal = true,
+        legacy_highlights = true,
       },
-      highlight_groups = {
-        ["@variable"] = { fg = "#e0def4" },
-        ["@variable.parameter"] = { fg = "#e0def4" },
-        ["@function.method.call"] = { fg = "#ebbcba" },
-      },
+      highlight_groups = {},
       styles = {
         bold = true,
         italic = false,
