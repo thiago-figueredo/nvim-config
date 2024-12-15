@@ -9,7 +9,6 @@ return {
         terminal = true,
         legacy_highlights = true,
       },
-      highlight_groups = {},
       styles = {
         bold = true,
         italic = false,
@@ -17,6 +16,7 @@ return {
       },
     })
 
+    vim.cmd.highlight("@function.call gui=bold")
     vim.cmd("colorscheme rose-pine-main")
   end,
 }

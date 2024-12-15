@@ -63,7 +63,11 @@ return { -- Fuzzy Finder (files, lsp, etc)
       builtin.oldfiles,
       { desc = '[telescope] [S]earch Recent Files ("." for repeat)' }
     )
-    vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[telescope] Find existing buffers" })
+    -- vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[telescope] Find existing buffers" })
+    vim.keymap.set("n", "<leader>sp", function()
+      builtin.find_files({ cwd = vim.fn.stdpath("data") })
+    end, { desc = "[telescope] [S]earch file in plugins" })
+
     vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[telescope] [S]earch [F]iles" })
 
     vim.keymap.set("n", "<leader>/", function()

@@ -7,23 +7,21 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end
 })
 
-local colorscheme = "gruvbox"
-
-vim.api.nvim_create_autocmd({ "BufRead" }, {
-  pattern = "trouble",
-  callback = function()
-    vim.cmd("colorscheme " .. colorscheme)
-  end,
-})
-
 vim.api.nvim_create_augroup("GoFileColorscheme", { clear = true })
 
--- vim.api.nvim_create_autocmd("ColorScheme", {
---   pattern = "rose-pine-moon",
---   callback = function()
---     vim.api.nvim_set_hl(0, "@function.method.call", { fg = "#ea9a97" })
---   end,
--- })
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*",
+  callback = function(ev)
+    if vim.startswith(ev.match, "rose-pine") then
+      vim.cmd.highlight("@function.call gui=bold")
+      -- vim.api.nvim_set_hl(0, "@function.method.call", { fg = "#ea9a97" })
+    end
+
+    if ev.match == "gruber-darker" then
+      vim.cmd("hi @type.builtin guifg=#ffdd33 gui=bold")
+    end
+  end,
+})
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
   callback = function()
