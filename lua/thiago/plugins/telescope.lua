@@ -55,7 +55,11 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[telescope] [S]earch current [W]ord" })
     vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[telescope] [S]earch by [G]rep" })
     vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[telescope] [S]earch [D]iagnostics" })
-    vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[telescope] [S]earch [R]esume" })
+    vim.keymap.set("n", "<leader>sr", function()
+      require('telescope.builtin').lsp_document_symbols({
+        show_line = true,
+      })
+    end, { desc = "[telescope] Search document symbols" })
     vim.keymap.set("n", "<leader>ss", builtin.git_status, { desc = "[telescope] [S]earch file in git [S]tatus" })
     vim.keymap.set(
       "n",

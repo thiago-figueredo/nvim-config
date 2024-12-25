@@ -9,10 +9,10 @@ return {
           enabled = true,
           clear_in_insert_mode = false,
           download_remote_images = true,
+          floating_windows = false,
           only_render_image_at_cursor = false,
           filetypes = { "markdown", "vimwiki" },
           resolve_image_path = function(document_path, image_path, fallback)
-            print(vim.inspect({ document_path = document_path, image_path = image_path }))
             return fallback(document_path, image_path)
           end,
         },

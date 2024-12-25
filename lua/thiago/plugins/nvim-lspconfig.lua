@@ -3,6 +3,7 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
+    "saghen/blink.cmp",
     { "antosha417/nvim-lsp-file-operations", config = true },
     { "folke/neodev.nvim",                   opts = {} },
   },
@@ -13,13 +14,15 @@ return {
 
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-      callback = require('thiago.core.lsp').on_attach,
+      callback = require("thiago.core.lsp").on_attach,
     })
 
-    local capabilities = cmp_nvim_lsp.default_capabilities()
+    local default_capabilities = cmp_nvim_lsp.default_capabilities()
+    local blink_capabilities = require("blink.cmp").get_lsp_capabilities()
+    local capabilities = vim.tbl_deep_extend("force", default_capabilities, blink_capabilities)
 
     vim.diagnostic.config({
-      virtual_text = true,
+      virtual_text = false,
       signs = true,
       underline = true,
       update_in_insert = false,
@@ -88,7 +91,7 @@ return {
         })
       end,
       ["rust_analyzer"] = function()
-        lspconfig['rust_analyzer'].setup({
+        lspconfig["rust_analyzer"].setup({
           settings = {
             rust_analyzer = {
               inlayHints = {

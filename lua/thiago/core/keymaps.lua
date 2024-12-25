@@ -15,7 +15,11 @@ keymap.set("n", "<leader>ww", function()
   local directions = {"Vertical", "Horizontal"}
 
   vim.ui.select(directions, { prompt = "[Split direction]" }, function (choice)
-      vim.ui.input({ prompt = "[What to split]", default = "term://bash", }, function (input)
+      vim.ui.input({
+      prompt = "[What to split]",
+      default = "term://bash",
+      completion = "file",
+    }, function (input)
         local cmds = {
           Vertical = function() return "vsplit " .. input end,
           Horizontal = function() return "split " .. input end
@@ -64,7 +68,7 @@ keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Save and quit
 keymap.set("n", "<C-q>", "<CMD>q!<CR>", { desc = "Quit without saving" })
-keymap.set("n", "<C-s>", "<CMD>w! | source %<CR>", { desc = "Force write to file" })
+keymap.set("n", "<C-s>", "<CMD>w!<CR>", { desc = "Force write to file" })
 
 -- Quick fix list
 keymap.set("n", "<C-j>", "<CMD>cnext<CR>", { desc = "Move to next item in the quick fix list" })

@@ -7,8 +7,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end
 })
 
-vim.api.nvim_create_augroup("GoFileColorscheme", { clear = true })
-
 vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = "*",
   callback = function(ev)
@@ -41,9 +39,7 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
         return
       end
 
-      filepath = filepath:sub(end_idx + 1)
-
-      if filepath ~= vim.fn.getcwd() .. '/' then
+      if filepath:sub(end_idx + 1) ~= vim.fn.getcwd() .. '/' then
         return
       end
 
